@@ -1,0 +1,71 @@
+.subject-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 20px; }
+.subject-choice { display: flex; align-items: center; gap: 16px; padding: 22px 20px; min-height: 104px; border: 1px solid #dce0d3; border-radius: 10px; background: #fffef9; text-align: left; color: #344e43; }
+.subject-choice[aria-pressed="true"] { border-color: #688658; box-shadow: inset 0 0 0 1px #688658; background: #f0f4e7; }
+.subject-choice:hover { background: #f0f3e8; }
+.subject-symbol { flex-shrink: 0; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; font: 30px Georgia, serif; background: #e2ebcd; color: #4d7041; }
+.subject-physics .subject-symbol { background: #e1edf2; color: #3d7187; }
+.subject-symbol svg { width: 27px; height: 27px; }
+.subject-chemistry .subject-symbol { background: #eee3ef; color: #805f8c; }
+.molecule-symbol { position: relative; }
+.molecule-symbol::before, .molecule-symbol::after { content: ""; position: absolute; width: 8px; height: 8px; border: 1px solid #805f8c; border-radius: 50%; background: #c9acd3; }
+.molecule-symbol::before { left: 8px; top: 10px; }
+.molecule-symbol::after { right: 8px; bottom: 9px; }
+.subject-choice strong { display: block; font: 23px Georgia, serif; margin-bottom: 7px; }
+.subject-choice small { display: block; font-size: 10px; color: #64725d; line-height: 1.6; }
+.subject-arrow { margin-left: auto; color: #71866a; font-size: 21px; }
+.subject-description { color: #52634e; font-size: 13px; line-height: 1.8; margin: 18px 0 23px; }
+.science-grid { grid-template-columns: 1fr; }
+.science-grid .grade-card { padding: 30px; background: linear-gradient(135deg, #fdfef9, #f1f6f7); }
+.science-grid .chemistry { background: linear-gradient(135deg, #fffef9, #f5f0f5); }
+.science-grid .grade-card:hover { transform: none; }
+.science-grid .grade-card h3 { font: 30px Georgia, serif; }
+.science-grid .grade-description { min-height: 0; max-width: 660px; font-size: 13px; }
+.science-grid .grade-badge { background: #deebf1; color: #446a80; }
+.science-grid .chemistry .grade-badge { background: #ebdfed; color: #785384; }
+.science-grid .grade-topics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 24px; counter-reset: science; }
+.science-grid .grade-topics li { padding: 0; border: 1px solid #d8e1dc; background: #fffefa; border-radius: 8px; font-size: 13px; }
+.science-grid .grade-topics li::before { content: none; }
+.science-grid .grade-topics a { display: block; padding: 19px; height: 100%; line-height: 1.7; }
+.science-grid .grade-topics a::before { counter-increment: science; content: "0" counter(science) " / VISUAL LESSON"; display: block; margin-bottom: 13px; color: #657b73; font: 9px "Courier New", monospace; letter-spacing: .7px; }
+.science-grid .grade-card-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+#lesson-model { max-width: none; margin: 22px 0; }
+.visual-model { margin: 0; padding: 19px 19px 16px; border: 1px solid #dce2d2; border-radius: 9px; background-color: #f7f8ef; background-image: radial-gradient(#80957426 .8px, transparent .8px); background-size: 14px 14px; overflow: hidden; }
+.visual-eyebrow { color: #536e4b; font: 9px "Courier New", monospace; letter-spacing: 1.5px; margin-bottom: 8px; }
+.learning-diagram { display: block; width: 100%; height: auto; max-height: 320px; stroke-linecap: round; }
+.learning-diagram text { font-family: "Segoe UI", Arial, sans-serif; }
+.visual-caption { margin: 10px auto 0; max-width: 570px; text-align: center; color: #52674d; font-size: 12px; line-height: 1.75; }
+.visual-button { display: block; margin: 12px auto 0; padding: 10px 16px; min-height: 42px; color: #365c46; border: 1px solid #bcccae; border-radius: 6px; background: #fffef9; font-size: 12px; }
+.visual-button:hover { background: #e8efda; }
+.visual-readout { display: block; text-align: center; color: #46613b; font-size: 12px; line-height: 1.7; margin: 13px 0 0; }
+.visual-control-label { display: block; font-size: 12px; font-weight: 500; color: #395c66; margin-top: 8px; }
+.visual-slider { display: block; width: 100%; min-height: 40px; accent-color: #407a91; margin: 4px 0; cursor: pointer; }
+.visual-compact { padding: 14px; margin-bottom: 20px; background-color: #f8f9f3; }
+.visual-compact .learning-diagram { max-height: 225px; }
+.visual-compact .visual-caption { font-size: 11px; }
+.visual-compact .visual-eyebrow { font-size: 8px; }
+[data-subject="physics"].learn-page { --accent: #deebf1; }
+[data-subject="physics"] .visual-model { background-color: #eff5f7; border-color: #d4e2e6; }
+[data-subject="physics"] .visual-eyebrow, [data-subject="physics"] .visual-caption, [data-subject="physics"] .visual-readout { color: #3f6470; }
+[data-subject="chemistry"] .visual-model { background-color: #f5f0f6; border-color: #e1d6e6; }
+[data-subject="chemistry"] .visual-eyebrow, [data-subject="chemistry"] .visual-caption { color: #74547b; }
+@media (max-width: 900px) {
+	.subject-choice { padding: 17px 14px; gap: 11px; }
+	.subject-choice small { font-size: 9px; }
+	.subject-arrow { display: none; }
+	.science-grid .grade-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 540px) {
+	.subject-filters { gap: 8px; }
+	.subject-choice { flex-direction: column; align-items: flex-start; padding: 14px 10px; gap: 12px; min-height: 150px; }
+	.subject-symbol { width: 36px; height: 36px; font-size: 24px; }
+	.subject-choice strong { font-size: 18px; }
+	.subject-choice small { font-size: 9px; }
+	.science-grid .grade-card { padding: 20px; }
+	.science-grid .grade-topics { grid-template-columns: 1fr; }
+	.science-grid .grade-card-bottom { align-items: flex-start; flex-direction: column; }
+	.visual-model { padding: 12px 8px; }
+	.visual-caption, .visual-readout { font-size: 11px; }
+	.visual-button { font-size: 11px; padding: 10px; }
+	.visual-compact { padding: 10px 5px; }
+	.visual-model:not([data-visual="scene"]) .learning-diagram text { font-size: 24px; }
+}
